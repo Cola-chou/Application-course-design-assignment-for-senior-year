@@ -74,286 +74,298 @@
 (function(){
     var chartDom = document.querySelector('.bar2 .chart');
     var myChart = echarts.init(chartDom);
+    // 颜色数组
+    var myColor = ['#1089e7','#f57474','#56d0e3','#f8b448',
+    '#8b78f6'
+  ]
     window.addEventListener = function() {
         myChart.resize();
       }
-    option = {
+      option = {
         tooltip: {
           trigger: 'axis',
           axisPointer: {
-            // Use axis to trigger tooltip
-            type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+            type: 'shadow'
           }
         },
         legend: {},
         grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
+          left: '10%',
+          right: '22%',
+          bottom: '10%',
           containLabel: true
         },
         xAxis: {
-          type: 'value'
+          // 隐藏x轴相关信息
+          show:false,
+          // type: 'value',
+          // boundaryGap: [0, 0.01]
         },
-        yAxis: {
-          type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
+        yAxis: [
+          {
+            // 隐藏y轴刻度
+            axisTick:{
+              show:false
+            },
+            // 隐藏y轴线
+            axisLine:{
+              show:false
+            },
+            // 修改刻度相关样式
+            axisLabel:{
+              color:"rgba(255,255,255,.6)",
+              fontSize:'11'
+            },
+            type: 'category',
+            data: ['Brazil', 'Indonesia', 'USA', 'India', 'China']
+          },
+          {
+          data:[702,350,610,793,664],
+                // 隐藏y轴线
+                axisLine:{
+                  show:false
+                },
+                // 修改刻度相关样式
+                axisLabel:{
+                  color:"#fff",
+                },
+
+          }
+        ],
         series: [
           {
-            name: 'Direct',
+            // name: '2011',
             type: 'bar',
-            stack: 'total',
-            label: {
-              show: true
+            data: [18203, 23489, 29034, 104970, 131744],
+            itemStyle:{
+              barBorderRadius:20,
+              // params 柱子对象
+              color:function(params){
+                return myColor[params.dataIndex]
+              }
             },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [320, 302, 301, 334, 390, 330, 320]
+            // 柱子间距
+            barCategoryGap:50,
+            // 柱子宽度
+            barWidth:10,
+            // 显示柱内标签
+            label:{
+              show:true,
+              position:'inside',
+              // 标签内容格式
+              formatter:"{c}%"
+            }
           },
           {
-            name: 'Mail Ad',
+            // name: '2012',
             type: 'bar',
-            stack: 'total',
-            label: {
-              show: true
+            data: [19325, 23438, 31000, 121594, 134141, 681807],
+            itemStyle:{
+              color:'none',
+              borderColor:'#00c1de',
+              barBorderRadius:15,
+              borderWidth:3
             },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [120, 132, 101, 134, 90, 230, 210]
-          },
-          {
-            name: 'Affiliate Ad',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [220, 182, 191, 234, 290, 330, 310]
-          },
-          {
-            name: 'Video Ad',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [150, 212, 201, 154, 190, 330, 410]
-          },
-          {
-            name: 'Search Engine',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [820, 832, 901, 934, 1290, 1330, 1320]
+            // 柱子间距
+            barCategoryGap:50,
+            // 柱子宽度
+            barWidth:10,
+            // 显示柱内标签
           }
         ]
       };
       option && myChart.setOption(option);
 })();
-// (function(){
+(function(){
 
-// var chartDom = document.querySelector('.line .chart')
-// var myChart = echarts.init(chartDom);
-// var option;
+var chartDom = document.querySelector('.line .chart')
+var myChart = echarts.init(chartDom);
+var option;
 
-// option = {
-//   title: {
-//     text: ''
-//   },
-//   tooltip: {
-//     trigger: 'axis'
-//   },
-//   legend: {
-//     data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
-//   },
-//   grid: {
-//     left: '3%',
-//     right: '4%',
-//     bottom: '3%',
-//     containLabel: true
-//   },
-//   toolbox: {
-//     feature: {
-//       saveAsImage: {}
-//     }
-//   },
-//   xAxis: {
-//     type: 'category',
-//     boundaryGap: false,
-//     data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-//   },
-//   yAxis: {
-//     type: 'value'
-//   },
-//   series: [
-//     {
-//       name: 'Email',
-//       type: 'line',
-//       stack: 'Total',
-//       data: [120, 132, 101, 134, 90, 230, 210]
-//     },
-//     {
-//       name: 'Union Ads',
-//       type: 'line',
-//       stack: 'Total',
-//       data: [220, 182, 191, 234, 290, 330, 310]
-//     },
-//     {
-//       name: 'Video Ads',
-//       type: 'line',
-//       stack: 'Total',
-//       data: [150, 232, 201, 154, 190, 330, 410]
-//     },
-//     {
-//       name: 'Direct',
-//       type: 'line',
-//       stack: 'Total',
-//       data: [320, 332, 301, 334, 390, 330, 320]
-//     },
-//     {
-//       name: 'Search Engine',
-//       type: 'line',
-//       stack: 'Total',
-//       data: [820, 932, 901, 934, 1290, 1330, 1320]
-//     }
-//   ]
-// };
+option = {
+  title: {
+    text: ''
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+  legend: {
+    data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      name: 'Email',
+      type: 'line',
+      stack: 'Total',
+      data: [120, 132, 101, 134, 90, 230, 210]
+    },
+    {
+      name: 'Union Ads',
+      type: 'line',
+      stack: 'Total',
+      data: [220, 182, 191, 234, 290, 330, 310]
+    },
+    {
+      name: 'Video Ads',
+      type: 'line',
+      stack: 'Total',
+      data: [150, 232, 201, 154, 190, 330, 410]
+    },
+    {
+      name: 'Direct',
+      type: 'line',
+      stack: 'Total',
+      data: [320, 332, 301, 334, 390, 330, 320]
+    },
+    {
+      name: 'Search Engine',
+      type: 'line',
+      stack: 'Total',
+      data: [820, 932, 901, 934, 1290, 1330, 1320]
+    }
+  ]
+};
 
-// option && myChart.setOption(option);
+option && myChart.setOption(option);
 
-// })();
-// (function(){
+})();
+(function(){
 
-//   var chartDom = document.querySelector('.line2 .chart')
-//   var myChart = echarts.init(chartDom);
-//   var option;
+  var chartDom = document.querySelector('.line2 .chart')
+  var myChart = echarts.init(chartDom);
+  var option;
   
-//   option = {
-//     xAxis: {
-//       type: 'category',
-//       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-//     },
-//     yAxis: {
-//       type: 'value'
-//     },
-//     series: [
-//       {
-//         data: [150, 230, 224, 218, 135, 147, 260],
-//         type: 'line'
-//       }
-//     ]
-//   };
+  option = {
+    xAxis: {
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        data: [150, 230, 224, 218, 135, 147, 260],
+        type: 'line'
+      }
+    ]
+  };
   
-//   option && myChart.setOption(option);
+  option && myChart.setOption(option);
   
-//   })();
-//   (function(){
+  })();
+  (function(){
 
-//     var chartDom = document.querySelector('.pie .chart')
-//     var myChart = echarts.init(chartDom);
-//     var option;
-//     option = {
-//       tooltip: {
-//         trigger: 'item'
-//       },
-//       legend: {
-//         top: '5%',
-//         left: 'center'
-//       },
-//       series: [
-//         {
-//           name: 'Access From',
-//           type: 'pie',
-//           radius: ['40%', '70%'],
-//           avoidLabelOverlap: false,
-//           label: {
-//             show: false,
-//             position: 'center'
-//           },
-//           emphasis: {
-//             label: {
-//               show: true,
-//               fontSize: '40',
-//               fontWeight: 'bold'
-//             }
-//           },
-//           labelLine: {
-//             show: false
-//           },
-//           data: [
-//             { value: 1048, name: 'Search Engine' },
-//             { value: 735, name: 'Direct' },
-//             { value: 580, name: 'Email' },
-//             { value: 484, name: 'Union Ads' },
-//             { value: 300, name: 'Video Ads' }
-//           ]
-//         }
-//       ]
-//     };
+    var chartDom = document.querySelector('.pie .chart')
+    var myChart = echarts.init(chartDom);
+    var option;
+    option = {
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+        top: '5%',
+        left: 'center'
+      },
+      series: [
+        {
+          name: 'Access From',
+          type: 'pie',
+          radius: ['40%', '70%'],
+          avoidLabelOverlap: false,
+          label: {
+            show: false,
+            position: 'center'
+          },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: '40',
+              fontWeight: 'bold'
+            }
+          },
+          labelLine: {
+            show: false
+          },
+          data: [
+            { value: 1048, name: 'Search Engine' },
+            { value: 735, name: 'Direct' },
+            { value: 580, name: 'Email' },
+            { value: 484, name: 'Union Ads' },
+            { value: 300, name: 'Video Ads' }
+          ]
+        }
+      ]
+    };
     
-//     option && myChart.setOption(option);
+    option && myChart.setOption(option);
     
-//     })();
+    })();
 
-//   (function(){
+  (function(){
 
-//       var chartDom = document.querySelector('.pie2 .chart')
-//       var myChart = echarts.init(chartDom,null);
-//       var option;
-//       option = {
-//         legend: {
-//           top: 'bottom'
-//         },
-//         toolbox: {
-//           show: true,
-//           feature: {
-//             mark: { show: true },
-//             dataView: { show: true, readOnly: false },
-//             restore: { show: true },
-//             saveAsImage: { show: true }
-//           }
-//         },
-//         series: [
-//           {
-//             name: 'Nightingale Chart',
-//             type: 'pie',
-//             radius: ['10%', '10%'],
-//             center: ['50%', '50%'],
-//             roseType: 'area',
-//             itemStyle: {
-//               borderRadius: 8
-//             },
-//             data: [
-//               { value: 40, name: 'rose 1' },
-//               { value: 38, name: 'rose 2' },
-//               { value: 32, name: 'rose 3' },
-//               { value: 30, name: 'rose 4' },
-//               { value: 28, name: 'rose 5' },
-//               { value: 26, name: 'rose 6' },
-//               { value: 22, name: 'rose 7' },
-//               { value: 18, name: 'rose 8' }
-//             ]
-//           }
-//         ]
-//       };
+      var chartDom = document.querySelector('.pie2 .chart')
+      var myChart = echarts.init(chartDom,null);
+      var option;
+      option = {
+        legend: {
+          top: 'bottom'
+        },
+        toolbox: {
+          show: true,
+          feature: {
+            mark: { show: true },
+            dataView: { show: true, readOnly: false },
+            restore: { show: true },
+            saveAsImage: { show: true }
+          }
+        },
+        series: [
+          {
+            name: 'Nightingale Chart',
+            type: 'pie',
+            radius: ['10%', '10%'],
+            center: ['50%', '50%'],
+            roseType: 'area',
+            itemStyle: {
+              borderRadius: 8
+            },
+            data: [
+              { value: 40, name: 'rose 1' },
+              { value: 38, name: 'rose 2' },
+              { value: 32, name: 'rose 3' },
+              { value: 30, name: 'rose 4' },
+              { value: 28, name: 'rose 5' },
+              { value: 26, name: 'rose 6' },
+              { value: 22, name: 'rose 7' },
+              { value: 18, name: 'rose 8' }
+            ]
+          }
+        ]
+      };
       
-//       option && myChart.setOption(option);
+      option && myChart.setOption(option);
       
-//       })();
+      })();
   
 
 
