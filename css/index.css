@@ -87,7 +87,7 @@ header .showTime {
 }
 .mainbox .panel .chart {
   height: 240px;
-  background-color: white;
+  background-color: rgba(220, 220, 220, 0.7);
 }
 .mainbox .panel .panel-footer {
   position: absolute;

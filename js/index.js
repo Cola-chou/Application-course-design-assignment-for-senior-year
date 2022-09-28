@@ -6,21 +6,54 @@
     }
     var option;
     option = {
+      //点击阴影
+      tooltip:{
+        trigger:'axis',
+        axisPointer:{
+          type:"shadow"
+        }
+      },
         xAxis: {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data: ['旅游行业','教育行业','游戏行业','医疗行业','电商行业','社交行业','金融行业'],
+            // 修改刻度相关样式
             axisLabel:{
-              color:'#f00'  
+              color:"rgba(255,255,255,.6)",
+              fontSize:'11'
+            },
+            // 不显示x坐标轴样式   
+            axisLine:{
+              show:false  
             }
 
         },
         yAxis: {
-            type: 'value'
+            type: 'value',
+            axisLabel:{
+              color:"rgba(255,255,255,.6)",
+              fontSize:12
+            },
+            // 修改y轴坐标
+            axisLine:{
+              show:true,
+              lineStyle:{
+                color:"rgba(255,255,255,.1)",
+                width:2
+              }
+            },
+            splitLine:{
+              color:"rgba(255,255,255,.6)"
+            }
         },
         series: [
             {
-                data: [120, 200, 150, 80, 70, 110, 130],
+                data: [500, 700, 1200, 800, 1500, 200, 900],
                 type: 'bar',
+                barWidth:'35%',
+                itemStyle:{
+                  //柱子圆角
+                  barBorderRadius:5
+                },
                 showBackground: true,
                 backgroundStyle: {
                     color: 'rgba(180, 180, 180, 0.2)'
@@ -31,7 +64,7 @@
             top:'0%',
             left:'10px',
             right:'0%',
-            bottom:'4%',
+            bottom:'0%',
             containLabel:true
         }
     };
