@@ -19,8 +19,8 @@
       data: ['旅游行业', '教育行业', '游戏行业', '医疗行业', '电商行业', '社交行业', '金融行业'],
       // 修改刻度相关样式
       axisLabel: {
-        color: "rgba(255,255,255,.6)",
-        fontSize: '8'
+        color: "#4c9bfd",
+        fontSize: '11'
       },
       // 不显示x坐标轴样式   
       axisLine: {
@@ -34,7 +34,7 @@
     yAxis: {
       type: 'value',
       axisLabel: {
-        color: "rgba(255,255,255,.6)",
+        color: "#4c9bfd",
         fontSize: 12
       },
       // 修改y轴坐标
@@ -124,8 +124,8 @@
         },
         // 修改刻度相关样式
         axisLabel: {
-          color: "rgba(255,255,255,.6)",
-          fontSize: '11'
+          color: "#4c9bfd",
+          fontSize: '13'
         },
         type: 'category',
         // 数据翻转
@@ -144,7 +144,8 @@
         },
         // 修改刻度相关样式
         axisLabel: {
-          color: "#fff",
+          color: "#4c9bfd",
+          fontSize: 13
         },
       }
     ],
@@ -165,14 +166,14 @@
         // 柱子间距
         barCategoryGap: 50,
         // 柱子宽度
-        barWidth: 10,
+        barWidth: 15,
         // 显示柱内标签
         label: {
           show: true,
           position: 'inside',
           // 标签内容格式
           formatter: "{c}%",
-          fontSize: 5,
+          fontSize: 12,
           color: '#fff'
         }
       },
@@ -185,12 +186,12 @@
           color: 'none',
           borderColor: '#00c1de',
           barBorderRadius: 15,
-          borderWidth: 3
+          borderWidth: 1
         },
         // 柱子间距
         barCategoryGap: 50,
         // 柱子宽度
-        barWidth: 10,
+        barWidth: 17,
         // 显示柱内标签
       }
     ]
@@ -336,7 +337,7 @@
     legend: {
       top: "0%",
       textStyle: {
-        color: "rgba(255,255,255,.5)",
+        color: "#4c9bfd",
         fontSize: "12"
       }
     },
@@ -356,7 +357,7 @@
         boundaryGap: false,
         axisLabel: {
           textStyle: {
-            color: "rgba(255,255,255,.6)",
+            color: "#4c9bfd",
             fontSize: 12
           }
         },
@@ -391,7 +392,7 @@
         },
         axisLabel: {
           textStyle: {
-            color: "rgba(255,255,255,.6)",
+            color: "#4c9bfd",
             fontSize: 12
           }
         },
@@ -520,11 +521,11 @@
 
     legend: {
       top: "90%",
-      itemWidth: 10,
+      itemWidth: 15,
       itemHeight: 10,
       data: ["0岁以下", "20-29岁", "30-39岁", "40-49岁", "50岁以上"],
       textStyle: {
-        color: "rgba(255,255,255,.5)",
+        color: "#4c9bfd",
         fontSize: "12"
       }
     },
@@ -570,10 +571,10 @@
   option = {
     legend: {
       top: "90%",
-      itemWidth: 10,
+      itemWidth: 15,
       itemHeight: 10,
       textStyle: {
-        color: "rgba(255,255,255,.5)",
+        color: "#4c9bfd",
         fontSize: "12"
       }
     },
@@ -607,7 +608,8 @@
         ],
         // 修饰饼形图文字相关的样式 label对象
         label: {
-          fontSize: 10
+          color: '#4c9bfd',
+          fontSize: 11
         },
         // 修饰引导线样式
         labelLine: {
