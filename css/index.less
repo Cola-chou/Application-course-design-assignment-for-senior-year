@@ -12,7 +12,7 @@ li{
     list-style: none;
 }
 body{
-    background: url('../images/j20.jpg')
+    background: url('../images/bg.jpg')
     no-repeat top center;
     
     background-size: cover ;
@@ -196,24 +196,26 @@ header{
     }
 }
 .map {
-  
     position: relative;
-  
-    height: 10.125rem;
-  
+    height: 810px;
     .chart {
-  
+        padding-right: 12%;
       position: absolute;
-  
       top: 0;
-  
-      left: 0;
-  
-      z-index: 5;
-  
-      height: 810px;
-  
-      width: 100%;
-  
+      left: 0; 
+      z-index: 5; 
+      height: 810px; 
+      width: 100%; 
+    }
+    .map1{
+        width: 550px;
+        height: 550px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background: url(../images/map.png);
+        background-size: 100% 100%;
+        opacity: 0.3;
     }
 }
