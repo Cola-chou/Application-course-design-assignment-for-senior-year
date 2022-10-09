@@ -1,10 +1,13 @@
 //bar chart
 (function () {
+  // 初始化Echarts对象
   var chartDom = document.querySelector('.bar .chart');
   var myChart = echarts.init(chartDom);
+  // Echarts大小自适应div函数
   window.addEventListener = function () {
     myChart.resize();
   }
+  // Echarts数据以及样式定义
   var option;
   option = {
     //点击阴影
@@ -79,7 +82,7 @@
       containLabel: true
     }
   };
-
+  // 为Echarts对象赋值
   option && myChart.setOption(option);
 })();
 //bar2 chart 
@@ -188,7 +191,7 @@
           barBorderRadius: 15,
           borderWidth: 1
         },
-        // 柱子间距
+        // 柱子间距 
         barCategoryGap: 50,
         // 柱子宽度
         barWidth: 17,
@@ -629,5 +632,3 @@
     myChart.resize();
   });
 })();
-// 模拟地图&&飞行路线
-// 引入china.js 中国地图
